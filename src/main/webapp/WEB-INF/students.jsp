@@ -9,7 +9,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Employees</title>
+    <title>Students</title>
 </head>
 <body>
 <%
@@ -24,6 +24,7 @@ Students | <a href="/addStudent">Add Student</a>
 <table border="2 solid">
     <tr>
         <th>ID</th>
+        <th>Picture</th>
         <th>Name</th>
         <th>SurName</th>
         <th>Email</th>
@@ -36,6 +37,13 @@ Students | <a href="/addStudent">Add Student</a>
         for (Student student : students) {%>
     <tr>
         <td><%=student.getId()%>
+        </td>
+        <td>
+            <%if (student.getPicName() != null) {%>
+            <img src="/downloadImage?imageName=<%=student.getPicName()%>" width="50">
+            <%}else{%>
+            <span>No picture</span>
+            <%}%>
         </td>
         <td><%=student.getName()%>
         </td>
